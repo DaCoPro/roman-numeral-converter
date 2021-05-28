@@ -1,5 +1,11 @@
-document.getElementById('testButton').addEventListener('click', testFunction);
+//cache
+let input = document.getElementById('inputField')
 
-export function testFunction (){
-    console.log('the test ran')
+//event listeners
+document.getElementById('convertButton').addEventListener('click', runConversion);
+
+
+function runConversion (evt) {
+    console.log(input.value)
 }
+
