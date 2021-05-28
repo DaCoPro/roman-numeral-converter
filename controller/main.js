@@ -7,13 +7,17 @@ let conversion = '';
 //event listeners
 document.getElementById('convertButton').addEventListener('click', runConversion);
 
-//Roman numerals: I = 1, V = 5, X = 10
+//Roman numerals: I = 1, V = 5, X = 10, 
 
 function runConversion () {
     
     evaluateUserInput();
     clearLastNumerals();
     
+    findThousands();
+    findFiveHundreds();
+    findHundreds();
+    findFifties();
     findTens();
     findFives();
     findOnes();
@@ -28,6 +32,34 @@ function evaluateUserInput () {
 function clearLastNumerals () {
     conversion = '';
     outputElement.innerHTML = conversion;
+}
+function findThousands () {
+    if (userInput >= 1000) {
+        conversion += 'Thousand';
+        userInput -= 1000;
+        findThousands();
+    }
+}
+function findFiveHundreds () {
+    if (userInput >= 500) {
+        conversion += 'FiveHundred';
+        userInput -= 500;
+        findFiveHundreds();
+    }
+}
+function findHundreds () {
+    if (userInput >= 100) {
+        conversion += 'Hundred';
+        userInput -= 100;
+        findHundreds();
+    }
+}
+function findFifties () {
+    if (userInput >= 50) {
+        conversion += 'Fifty';
+        userInput -= 50;
+        findFifties();
+    }
 }
 function findTens () {
     if (userInput >= 10) {
