@@ -10,8 +10,9 @@ document.getElementById('convertButton').addEventListener('click', runConversion
 //Roman numerals: I = 1, V = 5, X = 10
 
 function runConversion () {
-
+    
     evaluateUserInput();
+    clearLastNumerals();
     
     findTens();
     findFives();
@@ -24,12 +25,14 @@ function runConversion () {
 function evaluateUserInput () {
     userInput = input.value;
 }
-
+function clearLastNumerals () {
+    conversion = '';
+    outputElement.innerHTML = conversion;
+}
 function findTens () {
     if (userInput >= 10) {
         conversion += 'X';
         userInput -= 10;
-        console.log(userInput)
         findTens();
     }
 }
@@ -37,15 +40,16 @@ function findFives () {
     if (userInput >= 5) {
         conversion += 'V';
         userInput -= 5;
-        console.log(userInput)
         findFives();
     }
 }
 function findOnes () {
-    if (userInput >= 1) {
+    if (userInput > 3) {
+        conversion += "IV";
+        userInput -= 4;
+    } else if (userInput >= 1) {
         conversion += "I";
         userInput -= 1;
-        console.log(userInput)
         findOnes();
     }
 }
