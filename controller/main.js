@@ -35,28 +35,28 @@ function clearLastNumerals () {
 }
 function findThousands () {
     if (userInput >= 1000) {
-        conversion += 'Thousand';
+        conversion += 'M';
         userInput -= 1000;
         findThousands();
     }
 }
 function findFiveHundreds () {
     if (userInput >= 500) {
-        conversion += 'FiveHundred';
+        conversion += 'D';
         userInput -= 500;
         findFiveHundreds();
     }
 }
 function findHundreds () {
     if (userInput >= 100) {
-        conversion += 'Hundred';
+        conversion += 'C';
         userInput -= 100;
         findHundreds();
     }
 }
 function findFifties () {
     if (userInput >= 50) {
-        conversion += 'Fifty';
+        conversion += 'L';
         userInput -= 50;
         findFifties();
     }
